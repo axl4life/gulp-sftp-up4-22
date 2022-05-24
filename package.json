@@ -1,10 +1,10 @@
 {
-  "name": "gulp-sftp-up4",
-  "version": "0.1.8",
-  "description": "Upload files via SSH and working with gulp 4.0. Fork of original gulp-sftp",
+  "name": "gulp-sftp-up4-22",
+  "version": "1.0.0",
+  "description": "Upload files via SSH and working with gulp 4.0. Fork of gulp-sftp-up4",
   "license": "MIT",
-  "repository": "Robespeler/gulp-sftp-up4",
-  "homepage": "https://github.com/Robespeler/gulp-sftp-up4",
+  "repository": "Axl4life/gulp-sftp-up4-22",
+  "homepage": "https://github.com/axl4life/gulp-sftp-up4-22",
   "author": {
     "name": "Matthew Drake",
     "email": "mdrake@mediadrake.com",
@@ -40,12 +40,14 @@
     "deployment"
   ],
   "dependencies": {
-    "async": "~0.9.0",
-    "gulp-util": "~3.0.0",
-    "object-assign": "~0.3.1",
-    "parents": "~1.0.0",
-    "ssh2": "~0.6.1",
-    "through2": "~0.4.2"
+    "object-assign": "~4.1.1",
+    "parents": "~1.0.1",
+    "ssh2": "~1.10.0",
+    "through2": "~4.0.2",
+    "async": "~3.2.3",
+    "plugin-error": "~1.0.1",
+    "ansi-colors": "~4.1.3",
+    "fancy-log": "~2.0.0"
   },
   "devDependencies": {}
 }

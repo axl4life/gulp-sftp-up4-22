@@ -1,5 +1,7 @@
 # [gulp](http://gulpjs.com)-sftp-up4 [![Build Status](https://travis-ci.org/gtg092x/gulp-sftp.svg?branch=master)](https://travis-ci.org/gtg092x/gulp-sftp)
 
+This is a fork of gulp-sftp-up4 with some code syntax upgrade and dependencies update.
+
 This is fork of original gulp-sftp with little change which let us to use it with gulp 4.0 version
 It solve error: "TypeError: file.pipe is not a function".
 This solution is by Dan503 https://github.com/gtg092x/gulp-sftp/issues/78#issuecomment-356475605
@@ -8,10 +10,9 @@ And what I did - is just public it in npm with name "gulp-sftp-up4"
 Original README text below:
 (Just use new name gulp-sftp-up4)
 
-
 > Upload files via SSH
 
-Useful for uploading and deploying things via sftp. Right now this plugin just uploads everything. Caching and hash comparison are two TODO items.  
+Useful for uploading and deploying things via sftp. Right now this plugin just uploads everything. Caching and hash comparison are two TODO items.
 
 [![NPM](https://nodei.co/npm/gulp-sftp.png?downloads=true&stars=true)](https://nodei.co/npm/gulp-sftp/)
 
@@ -21,23 +22,22 @@ Useful for uploading and deploying things via sftp. Right now this plugin just u
 $ npm install --save-dev gulp-sftp-up4
 ```
 
-
 ## Usage
 
 ```js
-var gulp = require('gulp');
-var sftp = require('gulp-sftp-up4');
+var gulp = require("gulp");
+var sftp = require("gulp-sftp-up4");
 
-gulp.task('default', function () {
-	return gulp.src('src/*')
-		.pipe(sftp({
-			host: 'website.com',
-			user: 'johndoe',
-			pass: '1234'
-		}));
+gulp.task("default", function () {
+  return gulp.src("src/*").pipe(
+    sftp({
+      host: "website.com",
+      user: "johndoe",
+      pass: "1234",
+    })
+  );
 });
 ```
-
 
 ## API
 
@@ -45,7 +45,7 @@ gulp.task('default', function () {
 
 #### options.host
 
-*Required*  
+_Required_  
 Type: `String`
 
 #### options.port
@@ -90,7 +90,6 @@ Default: `null`
 
 A key file location. If an object, please use the format `{location:'/path/to/file',passphrase:'secretphrase'}`
 
-
 #### options.passphrase
 
 type `String`
@@ -120,44 +119,48 @@ Default: `.ftppass`
 A path relative to the project root to a JSON formatted file containing auth information.
 
 #### options.timeout
+
 type `int`
 Default: Currently set by ssh2 as `10000` milliseconds.
 
 An integer in milliseconds specifying how long to wait for a server response.
 
 #### options.agent
+
 type `String`
 Default: `null`
 
 Path to ssh-agent's UNIX socket for ssh-agent-based user authentication.
 
 #### options.agentForward
+
 type `bool`
 Default: `false`
 
 Set to true to use OpenSSH agent forwarding. Requires that `options.agent` is configured.
 
 #### options.callback
+
 type `function`
 Default: `null`
 
 Callback function to be called once the SFTP connection is closed.
-
 
 ##Authentication
 
 For better security, save authentication data in a json formatted file named `.ftppass` (or to whatever value you set options.authFile to). **Be sure to add this file to .gitignore**. You do not typically want auth information stored in version control.
 
 ```js
-var gulp = require('gulp');
-var sftp = require('gulp-sftp');
+var gulp = require("gulp");
+var sftp = require("gulp-sftp");
 
-gulp.task('default', function () {
-	return gulp.src('src/*')
-		.pipe(sftp({
-			host: 'website.com',
-			auth: 'keyMain'
-		}));
+gulp.task("default", function () {
+  return gulp.src("src/*").pipe(
+    sftp({
+      host: "website.com",
+      auth: "keyMain",
+    })
+  );
 });
 ```
 
@@ -185,24 +188,24 @@ gulp.task('default', function () {
 }
 ```
 
-
 ##Work with [pem](https://github.com/andris9/pem)
 
-To use [pem](https://github.com/andris9/pem) create private keys and certificates for access your server: 
+To use [pem](https://github.com/andris9/pem) create private keys and certificates for access your server:
 
 ```js
-var pem = require('pem');
-gulp.task('deploy:test', function () {
-    pem.createCertificate({}, function (err, kyes) {
-        return gulp.src('./src/**/*')
-            .pipe(sftp({
-                host: 'testserver.com',
-                user: 'testuser',
-                pass: 'testpass',
-                key: kyes.clientKey,
-                keyContents: kyes.keyContents
-            }));
-    });
+var pem = require("pem");
+gulp.task("deploy:test", function () {
+  pem.createCertificate({}, function (err, kyes) {
+    return gulp.src("./src/**/*").pipe(
+      sftp({
+        host: "testserver.com",
+        user: "testuser",
+        pass: "testpass",
+        key: kyes.clientKey,
+        keyContents: kyes.keyContents,
+      })
+    );
+  });
 });
 ```
 
@@ -223,4 +226,3 @@ Some awesome work via @mscdex addressed this issue. Please make sure you have th
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
-
